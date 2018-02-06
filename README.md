@@ -1,5 +1,10 @@
 # FolderLoggingFrontSide
 
+It is source code of Front-side of app that can be found by this link: `https://github.com/DmytroKurapin/folder-logging-full-app`
+This code written using Angular 5+  and still is under reconstruction.
+
+Few tips:
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.1.
 
 ## Development server

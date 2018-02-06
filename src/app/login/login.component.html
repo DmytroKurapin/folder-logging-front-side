@@ -1,0 +1,21 @@
+<form id="login-form" class="col-12 col-sm-4 col-xl-3"
+      #formData="ngForm" (ngSubmit)="submitLogin(formData.value)"
+>
+  <div class="login-container">
+    <mat-form-field>
+    <input matInput placeholder="User Name" type="text" required ngModel #username="ngModel" id="user" name="user"
+           (keyup)="invalidCredentials = false">
+      <mat-hint style="color: red" *ngIf="username.touched && !username.value">User name is <strong>required</strong>
+      </mat-hint>
+      <mat-hint style="color: red" *ngIf="invalidCredentials">Invalid Credentials</mat-hint>
+    </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Password" type="password" required ngModel #password="ngModel" id="pass" name="pass"
+           (keyup)="invalidCredentials = false">
+    <mat-hint style="color: red" *ngIf="password.touched && !password.value">Password is <strong>required</strong>
+    </mat-hint>
+    <mat-hint style="color: red" *ngIf="invalidCredentials">Invalid Credentials</mat-hint>
+  </mat-form-field>
+    <button type="submit" #submitBtn mat-raised-button color="primary" [disabled]="formData.invalid">Login</button>
+  </div>
+</form>

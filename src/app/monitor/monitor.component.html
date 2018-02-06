@@ -1,0 +1,12 @@
+<mat-form-field>
+  <input matInput placeholder="Path To Folder" type="text" ngModel #dirPath="ngModel" id="folderPath" name="folderPath"
+         (keyup)="enterData(dirPath.value)" [readonly]="isStarted">
+</mat-form-field>
+<button type="button" #startBtn mat-raised-button color="primary" (click)="startMonitor(dirPath.value)" [disabled]="!dirPath.value || isStarted">Start</button>
+<button type="button" #stopBtn mat-raised-button color="warn" (click)="stopMonitor(dirPath.value)" [disabled]="!dirPath.value || !isStarted">Stop</button>
+<div class="container" id="logs-cont" [hidden]="!actionLogs$ | async">
+  <div class="row" *ngFor="let actionLog of actionLogs$ | async">
+    <mat-icon [style.color]="actionLog.icon === 'cancel' ? 'red' : 'black'">{{actionLog.icon}}</mat-icon>
+    <span [style.color]="actionLog.icon === 'cancel' ? 'red' : 'black'">{{actionLog.message}}</span>
+  </div>
+</div>
